@@ -1,7 +1,7 @@
 #include <assert.h>
 #include "bclib.h"
 
-/* TODO: implement bc_bits2char */
+/* TODO: implement bc_char2bits */
 
 int bc_bits2char(int *bits) {
 	int ch = 0;
