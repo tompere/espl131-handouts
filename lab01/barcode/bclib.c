@@ -1,7 +1,16 @@
 #include <assert.h>
 #include "bclib.h"
 
-/* TODO: implement bc_char2bits */
+int *bc_char2bits(int ch, int *bits) {
+	int i;
+
+	for(i = 0; i!=BC_NBITS; ++i) {
+		bits[i] = ch&1;
+		ch >>= 1;
+	}
+
+	return bits;
+}
 
 int bc_bits2char(int *bits) {
 	int ch = 0;
@@ -14,11 +23,6 @@ int bc_bits2char(int *bits) {
 	return ch;
 }
 
-#ifndef TESTBC
-#define TESTBC 0
-#endif
-
-#if TESTBC
 /** Testing */
 
 /* converts ch to itself via bits, for testing */
@@ -36,6 +40,7 @@ void bc_test() {
 	assert(char2char(' ')==' ');
 }
 
+#if TESTBC
 int main() {
 	bc_test();
 	return 0;
